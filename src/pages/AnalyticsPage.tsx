@@ -78,7 +78,7 @@ function AnalyticsPage() {
     const totalRevenue = bookings
       .filter((b: any) => b.status === 'completed')
       .reduce((sum: number, booking: any) => {
-        const amount = parseFloat(booking.amount?.replace('$', '') || '120');
+        const amount = parseFloat(booking.amount?.replace('₹', '').replace('$', '') || '120');
         return sum + amount;
       }, 0);
 
@@ -374,12 +374,12 @@ function AnalyticsPage() {
         case 'csv':
           content = 'Metric,Value\n';
           content += `Total Users,${analyticsData.overview.totalUsers}\n`;
-          content += `Total Revenue,$${analyticsData.overview.totalRevenue}\n`;
+          content += `Total Revenue,₹${analyticsData.overview.totalRevenue}\n`;
           content += `Total Sessions,${analyticsData.overview.totalSessions}\n`;
           content += `Completed Sessions,${analyticsData.overview.completedSessions}\n`;
           content += `Active Therapists,${analyticsData.overview.activeTherapists}\n`;
           content += `Session Completion Rate,${analyticsData.overview.sessionCompletionRate}%\n`;
-          content += `Average Session Value,$${analyticsData.overview.averageSessionValue}\n\n`;
+          content += `Average Session Value,₹${analyticsData.overview.averageSessionValue}\n\n`;
           
           content += 'Module,Usage Count\n';
           analyticsData.charts.moduleUsage.forEach((module: any) => {
@@ -388,7 +388,7 @@ function AnalyticsPage() {
           
           content += '\nTherapist,Sessions,Rating,Revenue,Patients\n';
           analyticsData.therapists.forEach((therapist: any) => {
-            content += `${therapist.name},${therapist.sessions},${therapist.rating},$${therapist.revenue},${therapist.patients}\n`;
+            content += `${therapist.name},${therapist.sessions},${therapist.rating},₹${therapist.revenue},${therapist.patients}\n`;
           });
           
           filename = `mindcare-analytics-${timestamp}.csv`;
@@ -402,12 +402,12 @@ function AnalyticsPage() {
           
           content += `OVERVIEW METRICS:\n`;
           content += `- Total Users: ${analyticsData.overview.totalUsers}\n`;
-          content += `- Total Revenue: $${analyticsData.overview.totalRevenue.toLocaleString()}\n`;
+          content += `- Total Revenue: ₹${analyticsData.overview.totalRevenue.toLocaleString()}\n`;
           content += `- Total Sessions: ${analyticsData.overview.totalSessions}\n`;
           content += `- Completed Sessions: ${analyticsData.overview.completedSessions}\n`;
           content += `- Active Therapists: ${analyticsData.overview.activeTherapists}\n`;
           content += `- Session Completion Rate: ${analyticsData.overview.sessionCompletionRate}%\n`;
-          content += `- Average Session Value: $${analyticsData.overview.averageSessionValue}\n\n`;
+          content += `- Average Session Value: ₹${analyticsData.overview.averageSessionValue}\n\n`;
           
           content += `THERAPY MODULE USAGE:\n`;
           analyticsData.charts.moduleUsage.forEach((module: any) => {
@@ -419,7 +419,7 @@ function AnalyticsPage() {
             content += `${index + 1}. ${therapist.name}\n`;
             content += `   Sessions: ${therapist.sessions}\n`;
             content += `   Rating: ${therapist.rating.toFixed(1)}/5\n`;
-            content += `   Revenue: $${therapist.revenue.toLocaleString()}\n`;
+            content += `   Revenue: ₹${therapist.revenue.toLocaleString()}\n`;
             content += `   Patients: ${therapist.patients}\n\n`;
           });
           
@@ -494,7 +494,7 @@ function AnalyticsPage() {
     },
     {
       title: 'Total Revenue',
-      value: `$${analyticsData.overview.totalRevenue.toLocaleString()}`,
+      value: `₹${analyticsData.overview.totalRevenue.toLocaleString()}`,
       change: `+${analyticsData.overview.revenueGrowthRate}% this month`,
       icon: DollarSign,
       color: 'from-green-500 to-teal-500'
@@ -902,7 +902,7 @@ function AnalyticsPage() {
                       </div>
                     </td>
                     <td className={`px-4 py-3 text-sm font-medium text-green-600`}>
-                      ${therapist.revenue.toLocaleString()}
+                      ₹{therapist.revenue.toLocaleString()}
                     </td>
                   </motion.tr>
                 ))}

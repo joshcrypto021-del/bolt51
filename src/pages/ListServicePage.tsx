@@ -382,7 +382,7 @@ function ListServicePage() {
                 <label className={`block text-sm font-medium mb-2 ${
                   theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
                 }`}>
-                  Charges per Session (USD) *
+                  Charges per Session (₹) *
                 </label>
                 <div className="relative">
                   <DollarSign className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 ${
@@ -712,7 +712,7 @@ function ListServicePage() {
                   <div className="flex items-center space-x-1">
                     <DollarSign className="w-4 h-4 text-green-500" />
                     <span className={`text-sm font-semibold text-green-600`}>
-                      ${existingService.chargesPerSession}/session
+                      ₹{existingService.chargesPerSession}/session
                     </span>
                   </div>
                 </div>

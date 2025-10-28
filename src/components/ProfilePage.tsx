@@ -571,7 +571,7 @@ function ProfilePage() {
                     <label className={`block text-sm font-medium mb-2 ${
                       theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
                     }`}>
-                      Hourly Rate ($)
+                      Hourly Rate (₹)
                     </label>
                     <input
                       type="number"

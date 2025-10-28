@@ -330,13 +330,13 @@ function ReportsPage() {
             <strong>Pending Sessions:</strong> <span class="highlight">${analytics.overview.pendingSessions}</span>
           </div>
           <div class="metric">
-            <strong>Average Session Value:</strong> <span class="highlight">$${analytics.overview.averageSessionValue.toFixed(2)}</span>
+            <strong>Average Session Value:</strong> <span class="highlight">₹${analytics.overview.averageSessionValue.toFixed(2)}</span>
           </div>
-          
+
           <h2>Session Trends</h2>
           ${timeSeriesData.map(data => `
             <div class="metric">
-              <strong>${data.month}:</strong> ${data.sessions} sessions, $${data.revenue} revenue
+              <strong>${data.month}:</strong> ${data.sessions} sessions, ₹${data.revenue} revenue
             </div>
           `).join('')}
         `;
