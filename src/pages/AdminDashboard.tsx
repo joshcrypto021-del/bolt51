@@ -78,7 +78,7 @@ function AdminDashboard() {
     },
     {
       title: 'Platform Revenue',
-      value: `$${analytics.revenue.totalRevenue.toLocaleString()}`,
+      value: `₹${analytics.revenue.totalRevenue.toLocaleString()}`,
       change: `+${analytics.revenue.revenueGrowthRate}% from last month`,
       icon: DollarSign,
       color: 'from-purple-500 to-pink-500'
@@ -351,7 +351,7 @@ function AdminDashboard() {
                         <p className={`text-sm ${
                           theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
                         }`}>
-                          ${service.chargesPerSession}/session
+                          ₹{service.chargesPerSession}/session
                         </p>
                       </div>
                       <span className={`text-xs ${

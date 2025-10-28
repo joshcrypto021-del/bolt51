@@ -381,7 +381,7 @@ function BookingPage() {
       date: selectedDate,
       time: selectedTime,
       duration: 60,
-      amount: `$${selectedTherapist.hourlyRate}`,
+      amount: `₹${selectedTherapist.hourlyRate}`,
       status: 'confirmed',
       sessionType: 'video',
       patientEmail: user?.email || '',
@@ -400,7 +400,7 @@ function BookingPage() {
     // Track session booking and payment
     trackSessionStart(booking);
     trackPayment({
-      amount: `$${selectedTherapist.hourlyRate}`,
+      amount: `₹${selectedTherapist.hourlyRate}`,
       patientId: user?.id,
       therapistId: selectedTherapist.id,
       sessionType: 'video'
@@ -779,7 +779,7 @@ function BookingPage() {
                               {therapist.experience} years exp
                             </span>
                             <span className={`text-sm font-semibold text-green-600`}>
-                              ${therapist.hourlyRate}/hour
+                              ₹{therapist.hourlyRate}/hour
                             </span>
                           </div>
                           <div className="flex items-center space-x-2 mt-2">
@@ -1057,7 +1057,7 @@ function BookingPage() {
                               Session Fee:
                             </span>
                             <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
-                              ${selectedTherapist.hourlyRate}
+                              ₹{selectedTherapist.hourlyRate}
                             </span>
                           </div>
                           <div className="flex justify-between font-semibold pt-2 border-t border-gray-300 dark:border-gray-600">
@@ -1065,7 +1065,7 @@ function BookingPage() {
                               Total:
                             </span>
                             <span className={theme === 'dark' ? 'text-white' : 'text-gray-800'}>
-                              ${selectedTherapist.hourlyRate}
+                              ₹{selectedTherapist.hourlyRate}
                             </span>
                           </div>
                         </div>
@@ -1153,7 +1153,7 @@ function BookingPage() {
                           Amount:
                         </span>
                         <span className="text-green-600">
-                          ${selectedTherapist.hourlyRate}
+                          ₹{selectedTherapist.hourlyRate}
                         </span>
                       </div>
                     </div>
@@ -1292,7 +1292,7 @@ function BookingPage() {
                       className="flex-1 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-xl font-semibold hover:from-green-600 hover:to-teal-600 transition-all duration-300 flex items-center justify-center space-x-2"
                     >
                       <CreditCard className="w-4 h-4" />
-                      <span>Pay ${selectedTherapist.hourlyRate}</span>
+                      <span>Pay ₹{selectedTherapist.hourlyRate}</span>
                     </motion.button>
                   </div>
                 </div>
